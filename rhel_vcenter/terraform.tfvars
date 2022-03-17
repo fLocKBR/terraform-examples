@@ -1,0 +1,16 @@
+esx_password = ""
+datacenter = ""
+resource_pool = ""
+datastore = ""
+mgmt_lan = ""
+template_name = "teste123"
+#net_adapter_type = "vmxnet3"
+vm_name = "teste123"
+vm_count = 1
+num_cpus = 2
+num_mem = 4096
+vm_hostname = "teste123"
+vm_domain = "teste123"
+vm_ipaddress = "192.168.1.69"
+vm_ipnetmask = 24
+vm_gateway = "192.168.1.1"
