@@ -10,28 +10,28 @@ variable "esx_password" {
 }
 
 variable "esx_vcenter_server" {
-  default     = ""
+  default     = "10.122.144.195"
   type        = string
   description = "IP/FQDN para conexão ao vCenter"
 }
 
 variable "datacenter" {
-  default     = ""
+  default     = "NPRD"
   type        = string
 }
 
 variable "resource_pool" {
-  default     = ""
+  default     = "RP_TERRAFORM"
   type        = string
 }
 
 variable "datastore" {
-  default     = ""
+  default     = "VMAX089_0086A"
   type        = string
 }
 
 variable "esx_network" {
-  default     = ""
+  default     = "DL980-DES-APR_10.116.78.1-VLAN3670"
   type        = string
 }
 
@@ -88,6 +88,12 @@ variable "vm_ipaddress" {
 variable "vm_ipnetmask" {
   default     = 24
   description = "Máscara de rede"
+}
+
+variable "vm_dns" {
+  default     = ["192.168.0.120", "192.168.0.121"]
+  type        = list(string)
+  description = "Servidores DNS"
 }
 
 variable "vm_gateway" {

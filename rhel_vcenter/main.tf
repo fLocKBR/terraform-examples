@@ -23,7 +23,7 @@ data "vsphere_virtual_machine" "template" {
 } 
 
 # Set vm parameters
-resource "vsphere_virtual_machine" "demo" {
+resource "vsphere_virtual_machine" "vm" {
 ##count            = var.vm_count
   name             = var.vm_name
   num_cpus         = var.num_cpus
@@ -56,7 +56,7 @@ resource "vsphere_virtual_machine" "demo" {
       network_interface {
         ipv4_address    = var.vm_ipaddress
         ipv4_netmask    = var.vm_ipnetmask
-        dns_server_list = ["192.168.0.120", "192.168.0.121"]
+        dns_server_list = var.vm_dns
       }
 
       ipv4_gateway = var.vm_gateway
@@ -64,13 +64,13 @@ resource "vsphere_virtual_machine" "demo" {
   }
 
   # Execute script on remote vm after this creation
-  provisioner "remote-exec" {
-    script = "scripts/example-script.sh"
-    connection {
-      type     = "ssh"
-      user     = "root"
-      password = "VMware1!"
-      host     = vsphere_virtual_machine.demo.default_ip_address 
-    }
-  }
+  # provisioner "remote-exec" {
+  #   script = "scripts/example-script.sh"
+  #   connection {
+  #     type     = "ssh"
+  #     user     = "root"
+  #     password = "VMware1!"
+  #     host     = vsphere_virtual_machine.vm.default_ip_address 
+  #   }
+  # }
 }
